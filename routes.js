@@ -4,6 +4,8 @@ var fs = require('fs');
 var formidable = require("formidable");
 var bodyParser = require("body-parser");
 var multer  = require('multer');
+var Q = require('q');
+
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -14,7 +16,7 @@ module.exports = function(app) {
     //RENDER THE LOGIN PAGE
     //======================
     app.get('/login', function (req, res) {
-       res.render('login.html');
+       res.render('login.handlebars', {variable:"Hey I'm a variable"});
     })
     
     //===============================

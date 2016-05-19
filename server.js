@@ -5,15 +5,23 @@ var port     = process.env.PORT || 3074;
 var session  = require('express-session');;
 var bodyParser = require('body-parser');
 var multer  = require('multer');
+var exphbs  = require('express3-handlebars');
 
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 //app.use(session({ secret: 'login' })); // session secret
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static('public'));
-app.use(multer({dest: '/tmp/'}).single('file'));
 
+
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+//Implement the routes for the views
 require('./routes.js')(app);
 // launch ======================================================================
 app.listen(port);
