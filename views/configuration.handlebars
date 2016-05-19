@@ -1,14 +1,19 @@
 
 <h1>Configuration panel</h1>
+{{ username }} <a href="http://127.0.0.1:3087/logout">logout</a>
  
 <h2>Logs File</h2>
  	<a href="{{conf.get_logs_link}}">Download logs file</a>
 
 <h2>System Status</h2>
- {{conf.system_status}}
+	{{conf.get_system_status}}
 
-{% for wish in conf.get_whitelist %}
-BANANA <br />
-{% endfor %}
+<h2>White List</h2>
 
-<h2></h2>
+<textarea rows="4" cols="50">{{conf.system_status}}{{#each conf.get_whitelist}}
+{{this}}{{/each}}</textarea>
+
+<h2>Push it away</h2>
+	{{conf.get_push_it_away}}
+<h2>Custom landing</h2>    
+    {{conf.get_custom_landing}}
