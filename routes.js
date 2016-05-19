@@ -6,24 +6,49 @@ var bodyParser = require("body-parser");
 var multer  = require('multer');
 var Q = require('q');
 
+var sess;
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 module.exports = function(app) {
 
-    //======================
+    //===============================
     //RENDER THE LOGIN PAGE
-    //======================
+    //===============================
     app.get('/login', function (req, res) {
-       res.render('login.handlebars', {variable:"Hey I'm a variable"});
+        
+        sess = req.session;
+        
+        if(sess.username == "")
+        {
+            res.render('login.handlebars',{message: "Username or password wrong!"});
+        }
+        
+        res.render('login.handlebars');
     })
     
     //===============================
     //RENDER THE CONFIGURATION PAGE
     //===============================
     app.get('/configuration', function (req, res) {
-       res.render('configuration.html',{ name: "example" });
+        
+        sess = req.session;
+        
+        if(typeof sess.username == 'undefined')
+        {
+            res.redirect('/login');
+        }
+        res.render('configuration.handlebars',{ username: sess.username });
+    })
+    
+    //=========================================
+    //RENDER login page when you do the logout
+    //=========================================
+    app.get('/logout', function (req, res) {
+        //destroy the session before redirecting to the login page
+        req.session.destroy();
+        res.redirect('/login');
     })
     
     //===============================
@@ -38,6 +63,8 @@ module.exports = function(app) {
     //==========================================
     app.post('/loginPost', urlencodedParser, function (req, res) {
         
+        sess = req.session;
+        
         // Asynchronous read from config.json file
         var obj = JSON.parse(fs.readFileSync('config/config.json', 'utf8'));
         
@@ -48,10 +75,13 @@ module.exports = function(app) {
        };
         
         if(obj.authentication.username == response.username && obj.authentication.password == response.password){
+            //Save the username in a session variable and does the redirect to the configuration page
+            sess.username = response.username;
             res.redirect('/configuration');
         }
         else{
             console.log("username or password wrong!!!");
+            sess.username = "";
             res.redirect('/login');
         }
        console.log(response);

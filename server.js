@@ -1,15 +1,15 @@
 // get all the tools we need
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 3074;
+var port     = process.env.PORT || 3087;
 var session  = require('express-session');;
 var bodyParser = require('body-parser');
 var multer  = require('multer');
 var exphbs  = require('express3-handlebars');
 
 app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
-//app.use(session({ secret: 'login' })); // session secret
+//app.engine('html', require('ejs').renderFile);
+app.use(session({ secret: 'loginTracking' })); // session secret
 
 
 app.use(express.bodyParser());
