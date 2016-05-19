@@ -1,0 +1,20 @@
+{
+  "name": "Dreagle_user_interface",
+  "version": "0.0.0",
+  "description": "Free Drone zone user configuration interface",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dreagle Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^3.5.0",
+    "express-session": "^1.13.0",
+    "body-parser": "^1.15.1",
+    "multer": "^1.1.0",
+    "ejs": "^2.4.1",
+    "formidable": "^1.0.17"
+
+  }
+}
