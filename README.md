@@ -29,6 +29,21 @@ As a user:
 * I can define if the hacking should push the drones away
 * I can download the log file
 
+##Installing 
+
+In yout terminal, go to the folder you want to install.
+
+Clone this repo: 
+
+	git clone https://github.com/ferraricharles/Dreagle-user_interface.git
+
+Install the dependencies: 
+
+	npm install
+
+Run the Node Js application: 
+
+	node server.js
 
 [1]: http://www.tdlimpo.com.br
 
