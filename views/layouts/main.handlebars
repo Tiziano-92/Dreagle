@@ -1,7 +1,57 @@
 <!-- views/layouts/main.handlebars -->
 <html>
+<head>
+	<title></title>
+	<!-- BOOTSTRAP CORE STYLE  -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <!-- Bootstrap Switch  -->
+    <link href="css/bootstrap-switch.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/my_styles.css" rel="stylesheet" />
+</head>
 <body>
-	{{{body}}}
+   
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container" style="min-height: 120px">
+            <div class="navbar-header">
+                
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" width="150" />
+                </a>
+
+            </div>   
+
+         </div>
+        <section class="menu-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-collapse collapse ">
+                            <ul id="menu-top" class="nav navbar-nav navbar-right">
+                                <li><a class="menu-top-active" href="index.html">Dashboard</a></li>
+                                <li><a href="/logout">logout</a></li>                                
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="content-wrapper">
+	   {{{body}}}
+    </div>
+
+	 <!-- CORE JQUERY SCRIPTS -->
+    <script src="js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+
+    <script src="js/functions.js"></script>
 </body>
 
 </html>

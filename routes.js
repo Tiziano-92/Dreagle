@@ -38,9 +38,6 @@ module.exports = function(app) {
     app.get('/configuration', function (req, res) {
        res.render('configuration.handlebars',{ conf: conf});
     })
-
-    console.log("\n\n\n\n\n\n");
-    console.log(conf.localReg());
     /*
     app.get('/configuration', function (req, res) {
         
@@ -96,7 +93,6 @@ module.exports = function(app) {
             sess.username = "";
             res.redirect('/login');
         }
-       console.log(response);
        res.end(JSON.stringify(response));
     })
 

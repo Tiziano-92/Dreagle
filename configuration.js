@@ -29,9 +29,3 @@ exports.get_custom_landing = function(){
 exports.get_logs_link = function(){
 	return config.firmware.logs;
 }
-
-var user = {
-    "username": " aurhauhra",
-    "password": "hehehehe",
-    "avatar": "http://placepuppy.it/images/homepage/Beagle_puppy_6_weeks.JPG"
-  }

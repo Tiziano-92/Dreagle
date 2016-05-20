@@ -21,6 +21,10 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+//set the static files page
+app.use(express.static('assets'));
+
+
 //Implement the routes for the views
 require('./routes.js')(app);
 // launch ======================================================================
