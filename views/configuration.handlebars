@@ -1,6 +1,6 @@
 <div class="container">
-
-	 <div class="row">
+	<form method="POST" action"">
+	<div class="row">
         <div class="col-md-12">
 			<h1 class="page-head-line">Configuration panel</h1>
 		</div>
@@ -16,21 +16,30 @@
 
     </div>
 	
+	<div class="col-md-3">
+		<h2>Logs File</h2>
+	 	<a class="btn btn-default" href="{{conf.get_logs_link}}">Download logs file</a>
+
+		<h2>White List</h2>
+
+		<textarea class="form-control" rows="3">{{conf.system_status}}{{#each conf.get_whitelist}}
+		{{this}}{{/each}}</textarea>	
+
+	</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-3">
+		<h2>System Status</h2>
+			<input type="checkbox" name="system_status" class="switch" {{#if conf.get_system_status }} checked {{/if}} >
+
+		<h2>Push it away</h2>
+			<input type="checkbox" name="push_it_away" class="switch" {{#if conf.get_push_it_away }} checked {{/if}} >
+			
+		<h2>Custom landing</h2>  
+			<input type="checkbox" name="push_it_away" class="switch" {{#if conf.get_custom_landing }} checked {{/if}} > 
+
+	</div>
+	<div class="clearfix"></div>
+	<button type="submit" class="btn btn-lg">Submit</button>
 	 
-	<h2>Logs File</h2>
-	 	<a href="{{conf.get_logs_link}}">Download logs file</a>
-
-	<h2>System Status</h2>
-		<input type="checkbox" name="my-checkbox" class="switch" {{#if conf.get_system_status }} checked {{/if}} >
-		{{conf.get_system_status}}
-
-	<h2>White List</h2>
-
-	<textarea rows="4" cols="50">{{conf.system_status}}{{#each conf.get_whitelist}}
-	{{this}}{{/each}}</textarea>
-
-	<h2>Push it away</h2>
-		{{conf.get_push_it_away}}
-	<h2>Custom landing</h2>    
-	    {{conf.get_custom_landing}}
+	</form>
 </container>
