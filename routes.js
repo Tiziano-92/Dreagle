@@ -18,6 +18,9 @@ module.exports = function(app) {
     app.get('/', function (req, res) {
         res.redirect('/login');
     })
+    app.get('/index.html', function (req, res) {
+        res.redirect('/login');
+    })
 
 
     //===============================
