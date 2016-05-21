@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");
 var multer  = require('multer');
 var Q = require('q');
 var conf = require('./configuration');
+var conf_post = require('./configuration_post')
 
 var sess;
 
@@ -14,18 +15,19 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 module.exports = function(app) {
 
+    app.get('/', function (req, res) {
+        res.redirect('/login');
+    })
+
+
     //===============================
     //RENDER THE LOGIN PAGE
     //===============================
     app.get('/login', function (req, res) {
-        
-        sess = req.session;
-        
-        if(sess.username == "")
-        {
+        sess = req.session;       
+        if(sess.username == ""){
             res.render('login.handlebars',{message: "Username or password wrong!"});
         }
-        
         res.render('login.handlebars');
     })
     
@@ -34,22 +36,26 @@ module.exports = function(app) {
     //===============================
     //RENDER THE CONFIGURATION PAGE
     //===============================
-
-    app.get('/configuration', function (req, res) {
-       res.render('configuration.handlebars',{ conf: conf});
-    })
-    /*
-    app.get('/configuration', function (req, res) {
-        
+    
+    app.get('/configuration', function (req, res) {        
         sess = req.session;
-        
-
         if(typeof sess.username == 'undefined')
         {
             res.redirect('/login');
         }
-        res.render('configuration.handlebars',{ username: sess.username });
-    })*/
+        res.render('configuration.handlebars',{ username: sess.username, conf: conf });
+    })
+
+    app.post('/configuration', function (req, res) {        
+        sess = req.session;
+        if(typeof sess.username == 'undefined')
+        {
+            res.redirect('/login');
+        }
+        conf_post.update_options(req);
+        conf = require('./configuration');
+        res.render('configuration.handlebars',{ conf: conf});
+    })
     
     //=========================================
     //RENDER login page when you do the logout

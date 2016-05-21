@@ -31,7 +31,7 @@ As a user:
 
 ##Installing 
 
-In yout terminal, go to the folder you want to install.
+In your terminal, go to the folder you want to install.
 
 Clone this repo: 
 
@@ -44,6 +44,7 @@ Install the dependencies:
 Run the Node Js application: 
 
 	node server.js
+	
 
 [1]: http://www.tdlimpo.com.br
 

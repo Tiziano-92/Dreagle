@@ -22,8 +22,8 @@
 
 		<h2>White List</h2>
 
-		<textarea class="form-control" rows="3">{{conf.system_status}}{{#each conf.get_whitelist}}
-		{{this}}{{/each}}</textarea>	
+		<textarea class="form-control" name="whitelist" rows="3">{{conf.system_status}}{{#each conf.get_whitelist}}
+{{this}}{{/each}}</textarea>	
 
 	</div>
 	<div class="col-md-1"></div>
@@ -35,7 +35,7 @@
 			<input type="checkbox" name="push_it_away" class="switch" {{#if conf.get_push_it_away }} checked {{/if}} >
 			
 		<h2>Custom landing</h2>  
-			<input type="checkbox" name="push_it_away" class="switch" {{#if conf.get_custom_landing }} checked {{/if}} > 
+			<input type="checkbox" name="custom_landing" class="switch" {{#if conf.get_custom_landing }} checked {{/if}} > 
 
 	</div>
 	<div class="clearfix"></div>

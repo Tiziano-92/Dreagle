@@ -1,16 +1,1 @@
-{
-	"status": 1,
-	"whitelist": ["00:00:00:00:00:01", "00:00:00:00:00:02", "00:00:00:00:00:03"],
-	"actions": {
-		"pia": 1,
-		"cls": 0
-	},
-	"authentication": {
-		"username": "dreagle",
-		"password": "elgaerd"
-	},
-	"firmware": {
-		"version": "0.1",
-		"logs": "/tmp/mylog.log"
-	}
-}
+{"status":1,"whitelist":["00:00:00:00:00:01","00:00:00:00:00:02","00:00:00:00:00:03"],"actions":{"pia":1,"cls":0},"authentication":{"username":"dreagle","password":"dreagle"},"firmware":{"version":"0.1","logs":"/tmp/mylog.log"}}
