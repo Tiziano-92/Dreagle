@@ -312,3 +312,7 @@ footer {
 .btn-google {
     background-color: #c32f10;
 }
+
+.panel{
+    padding: 0;
+}

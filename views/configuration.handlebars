@@ -6,40 +6,50 @@
 		</div>
 	</div>
 	<div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-md-push-1">
             <div class="">
-            	<h5>
+            	<h2>
                 	Welcome to your Dreagle dashboard!
-                </h5>
+                </h2>
             </div>
         </div>
 
     </div>
-	
-	<div class="col-md-3">
-		<h2>Logs File</h2>
-	 	<a class="btn btn-default" href="{{conf.get_logs_link}}">Download logs file</a>
+	<div class="row">
+		
+		<div class="col-md-4 panel panel-default col-md-push-1">
+			<div class="panel-heading"><h3>System actions configuration</h3></div>
+			<div class="panel-body">
+				<h2>System Status</h2>
+					<input type="checkbox" name="system_status" class="switch" {{#if conf.get_system_status }} checked {{/if}} >
 
-		<h2>White List</h2>
+				<h2>Push it away</h2>
+					<input type="checkbox" name="push_it_away" class="switch" {{#if conf.get_push_it_away }} checked {{/if}} >
+					
+				<h2>Custom landing</h2>  
+					<input type="checkbox" name="custom_landing" class="switch" {{#if conf.get_custom_landing }} checked {{/if}} > 
+			</div>
 
-		<textarea class="form-control" name="whitelist" rows="3">{{conf.system_status}}{{#each conf.get_whitelist}}
+		</div>
+		<div class="col-md-4  col-md-push-2 panel panel-default">
+			<div class="panel-heading"><h3>Logs</h3></div>
+			<div class="panel-body text-center">
+				
+			 	<a class="btn btn-default" href="{{conf.get_logs_link}}">Download logs file</a>
+			 </div>
+
+			<div class="panel-heading"><h3>White List</h3></div>
+			<div class="panel-body">
+
+				<textarea class="form-control" name="whitelist" rows="3">{{conf.system_status}}{{#each conf.get_whitelist}}
 {{this}}{{/each}}</textarea>	
+			</div>
 
-	</div>
-	<div class="col-md-1"></div>
-	<div class="col-md-3">
-		<h2>System Status</h2>
-			<input type="checkbox" name="system_status" class="switch" {{#if conf.get_system_status }} checked {{/if}} >
-
-		<h2>Push it away</h2>
-			<input type="checkbox" name="push_it_away" class="switch" {{#if conf.get_push_it_away }} checked {{/if}} >
-			
-		<h2>Custom landing</h2>  
-			<input type="checkbox" name="custom_landing" class="switch" {{#if conf.get_custom_landing }} checked {{/if}} > 
-
+		</div>
 	</div>
 	<div class="clearfix"></div>
-	<button type="submit" class="btn btn-lg">Submit</button>
-	 
+	<div class="text-center">
+		<button type="submit" class="btn btn-lg">Submit</button>
+	 </div>
 	</form>
 </container>
