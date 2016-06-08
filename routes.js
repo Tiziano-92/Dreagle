@@ -46,6 +46,22 @@ module.exports = function(app) {
         {
             res.redirect('/login');
         }
+        
+        var wlrmv = req.query.wlrmv;
+        if(wlrmv){
+            conf.remove_from_whitelist(wlrmv);
+            conf.save_file();
+            res.redirect('/configuration');
+        }
+
+        var wladd = req.query.wladd;
+        if(wladd){
+            conf.add_to_whiteList(wladd);
+            conf.save_file();
+            res.redirect('/configuration');
+        }
+        
+        
         res.render('configuration.handlebars',{ username: sess.username, conf: conf });
     })
 

@@ -49,6 +49,19 @@ exports.set_whitelist = function(whitelist){
 	config.whitelist = whitelist;
 }
 
+exports.add_to_whiteList = function(element){	
+	config.whitelist.push(element);
+}
+
+exports.remove_from_whitelist = function(element){	
+	config.whitelist.forEach(function(result, index) {
+		console.log(result);
+	    if(result == element) {	      
+	      config.whitelist.splice(index, 1);
+	    }    
+  	});		
+}
+
 exports.save_file = function(){
 	jsonfile.writeFile(file_address, config, function (err) {
   		console.error(err);

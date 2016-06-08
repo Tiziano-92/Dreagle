@@ -29,20 +29,40 @@
 				<h2>Custom landing</h2>  
 					<input type="checkbox" name="custom_landing" class="switch" {{#if conf.get_custom_landing }} checked {{/if}} > 
 			</div>
-
-		</div>
-		<div class="col-md-4  col-md-push-2 panel panel-default">
 			<div class="panel-heading"><h3>Logs</h3></div>
 			<div class="panel-body text-center">
 				
 			 	<a class="btn btn-default" href="{{conf.get_logs_link}}">Download logs file</a>
 			 </div>
 
+
+		</div>
+		<div class="col-md-4  col-md-push-2 panel panel-default">
+			
 			<div class="panel-heading"><h3>White List</h3></div>
 			<div class="panel-body">
-
-				<textarea class="form-control" name="whitelist" rows="3">{{conf.system_status}}{{#each conf.get_whitelist}}
-{{this}}{{/each}}</textarea>	
+				<table class="table">
+					
+					<thead>
+						<tr>
+							<th>MAC Address</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					{{conf.system_status}}{{#each conf.get_whitelist}}
+						<tr>
+							<td>{{this}}</td>
+							<td> 
+								<a class="btn btn-default" href="?wlrmv={{this}}" >
+									Remove
+								</a>  
+							</td>
+						</tr>
+					{{/each}}
+				</table>
+				<label>
+					MAC Address: <input id="add_wl" type="text" value ="" /> <input id="new_wl" type="button" value="Add">
+				</label>
 			</div>
 
 		</div>

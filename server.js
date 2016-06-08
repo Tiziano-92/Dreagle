@@ -12,8 +12,6 @@ app.set('views', __dirname + '/views');
 app.use(session({ secret: 'loginTracking' })); // session secret
 
 
-app.use(express.bodyParser());
-app.use(express.methodOverride());
 
 var hbs = exphbs.create({
     defaultLayout: 'main',
