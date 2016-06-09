@@ -55,7 +55,6 @@ exports.add_to_whiteList = function(element){
 
 exports.remove_from_whitelist = function(element){	
 	config.whitelist.forEach(function(result, index) {
-		console.log(result);
 	    if(result == element) {	      
 	      config.whitelist.splice(index, 1);
 	    }    

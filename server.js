@@ -6,6 +6,7 @@ var session  = require('express-session');;
 var bodyParser = require('body-parser');
 var multer  = require('multer');
 var exphbs  = require('express3-handlebars');
+var bodyParser = require('body-parser')
 
 app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
@@ -21,7 +22,8 @@ app.set('view engine', 'handlebars');
 
 //set the static files page
 app.use(express.static('assets'));
-
+app.use( bodyParser.json() ); 
+app.use(express.urlencoded()); 
 
 //Implement the routes for the views
 require('./routes.js')(app);
